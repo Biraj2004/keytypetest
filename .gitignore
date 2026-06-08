@@ -8,7 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 .vite
 node_modules
-package-lock.json
+
 dist
 dist-ssr
 *.local
