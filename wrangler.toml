@@ -1,0 +1,7 @@
+name = "keytype"
+compatibility_date = "2026-06-01"
+
+[assets]
+directory = "./dist"
+html_handling = "single-page-application"
+not_found_handling = "single-page-application"

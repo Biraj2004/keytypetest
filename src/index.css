@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base backgrounds */
+  --color-bg:               #151510;   /* page background — near-black with a warm tint */
+  --color-surface:          #1c1c16;   /* input region, modal backgrounds */
+  --color-overlay:          #111110;   /* results overlay */
+
+  /* Text hierarchy */
+  --color-text-primary:     #d1cfc0;   /* main body text, typed-correct characters */
+  --color-text-secondary:   #646257;   /* untyped characters — muted, not invisible */
+  --color-text-tertiary:    #3d3b32;   /* hints, keyboard shortcut labels */
+  --color-text-inverse:     #151510;   /* text on accent backgrounds */
+
+  /* State colours — only used for character feedback */
+  --color-correct:          #88b463;   /* correctly typed char — warm green */
+  --color-incorrect:        #ca4754;   /* wrong character — red, not orange, not pink */
+  --color-cursor:           #e2b714;   /* caret — MonkeyType yellow, warm */
+  --color-accent:           #e2b714;   /* active tab, selected mode */
+
+  /* Structural */
+  --color-divider:          #252520;   /* separator lines — barely visible */
+  --color-muted-bg:         #1a1a14;   /* mode tabs inactive background */
+
+  --font-mono: 'Roboto Mono', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Custom Spacing / Widths */
+  --width-container: 1000px;
+  --width-mobile-warning: 280px;
+
+  /* Screen Breakpoints */
+  --breakpoint-xs: 480px;
+
+  /* Custom Typography Sizes */
+  --text-word: 1.5rem;
+  --text-stat-large: 3rem;
+  --text-stat-label: 0.75rem;
+  --text-stat-live: 2rem;
+  --text-stat-live-sub: 1.5rem;
+  --text-mode: 0.875rem;
+  --text-hint: 0.75rem;
+  --text-logo: 1.125rem;
+  --text-badge: 0.625rem;
+
+  /* Base Spacing System (multiples of 4px) */
+  --spacing-1:  4px;
+  --spacing-2:  8px;
+  --spacing-3:  12px;
+  --spacing-4:  16px;
+  --spacing-6:  24px;
+  --spacing-8:  32px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+
+  /* Animations & Keyframes */
+  --animate-cursor-blink: cursorBlink 1s step-end infinite;
+  --animate-fade-in: fadeIn 200ms ease;
+
+  /* Heights */
+  --height-cursor-line: 1.2em;
+
+  @keyframes cursorBlink {
+    from, to {
+      border-color: var(--color-cursor);
+    }
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@layer components {
+  /* ── Header danger ghost button ── */
+  .btn-danger-ghost {
+    position: relative;
+    opacity: 1;
+    color: var(--color-text-secondary);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity 200ms ease, color 200ms ease;
+    outline: none;
+  }
+  .btn-danger-ghost:hover {
+    opacity: 1;
+    color: var(--color-incorrect);
+  }
+  .btn-danger-ghost:hover svg {
+    transform: scale(1.15);
+  }
+  .btn-danger-ghost svg {
+    transition: transform 200ms ease;
+  }
+  .btn-danger-ghost:active {
+    opacity: 0.7;
+    transform: scale(0.96);
+  }
+
+  /* ── Dialog action buttons ── */
+  .dialog-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    opacity: 0.65;
+    cursor: pointer;
+    transition: opacity 200ms ease, color 200ms ease, transform 150ms ease;
+    outline: none;
+  }
+  .dialog-btn:hover {
+    opacity: 1;
+  }
+  .dialog-btn:active {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  .dialog-btn-cancel {
+    color: var(--color-text-secondary);
+  }
+  .dialog-btn-cancel:hover {
+    color: var(--color-text-primary);
+  }
+  .dialog-btn-danger {
+    color: var(--color-incorrect);
+    background-color: rgba(202, 71, 84, 0.1);
+    border: 1px solid rgba(202, 71, 84, 0.25);
+    border-radius: 8px;
+    padding: 8px 28px;
+    opacity: 1;
+    transition: background-color 200ms ease, border-color 200ms ease, transform 150ms ease, opacity 150ms ease;
+  }
+  .dialog-btn-danger:hover {
+    opacity: 1;
+    background-color: rgba(202, 71, 84, 0.22);
+    border-color: rgba(202, 71, 84, 0.5);
+  }
+  .dialog-btn-danger:active {
+    opacity: 0.8;
+    transform: scale(0.96);
+  }
+}
+
+@utility max-w-container {
+  max-width: 900px;
+}
+
+@utility max-w-mobile-warning {
+  max-width: 280px;
+}
+
+@utility sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Word Display Sizing & Responsive Rules */
+.word-display-container {
+  height: 7.875rem; /* 3 lines * 1.75 * 1.5rem = 7.875rem */
+  overflow: hidden;
+}
+
+.word-display-content {
+  transition: transform 150ms ease;
+  font-family: var(--font-mono);
+  font-size: var(--text-word);
+  line-height: 1.75;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* Tablet portrait and landscape / smaller screens */
+@media (max-width: 720px) {
+  .word-display-container {
+    height: 6.5625rem; /* 3 lines * 1.75 * 1.25rem = 6.5625rem */
+  }
+  .word-display-content {
+    font-size: 1.25rem;
+  }
+}
+
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
