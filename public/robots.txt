@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://keytype.pages.dev/sitemap.xml
+Sitemap: https://keytypetest.birajsarkar67.workers.dev/sitemap.xml

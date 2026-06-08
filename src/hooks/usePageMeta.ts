@@ -22,7 +22,7 @@ export function usePageMeta({
   noIndex = false,
 }: PageMeta) {
   useEffect(() => {
-    const base = 'https://keytype.pages.dev'
+    const base = 'https://keytypetest.birajsarkar67.workers.dev'
 
     // Title
     document.title = title
@@ -51,13 +51,13 @@ export function usePageMeta({
       document.title = 'KeyType — Free Online Typing Speed Test | WPM Practice'
       setMeta('name', 'description', 'Free online typing speed test — measure your WPM and accuracy in 15, 30, 60, or 120 second tests. No signup required. Works offline. Start typing now.')
       setMeta('name', 'robots', 'index, follow')
-      setLink('canonical', `${base}/`)
+      setLink('canonical', `https://keytypetest.birajsarkar67.workers.dev/`)
       setMeta('property', 'og:title', 'KeyType — Free Online Typing Speed Test | WPM Practice')
       setMeta('property', 'og:description', 'Free online typing speed test — measure your WPM and accuracy in 15, 30, 60, or 120 second tests. No signup required. Works offline. Start typing now.')
-      setMeta('property', 'og:url', `${base}/`)
+      setMeta('property', 'og:url', `https://keytypetest.birajsarkar67.workers.dev/`)
       setMeta('name', 'twitter:title', 'KeyType — Free Online Typing Speed Test | WPM Practice')
       setMeta('name', 'twitter:description', 'Free online typing speed test — measure your WPM and accuracy in 15, 30, 60, or 120 second tests. No signup required. Works offline.')
-      setMeta('name', 'twitter:url', `${base}/`)
+      setMeta('name', 'twitter:url', `https://keytypetest.birajsarkar67.workers.dev/`)
     }
   }, [title, description, canonical, ogTitle, ogDescription, noIndex])
 }

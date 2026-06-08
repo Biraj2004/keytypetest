@@ -74,14 +74,12 @@ export class ErrorBoundary extends Component<Props, State> {
               <button
                 onClick={this.handleReset}
                 className="flex items-center gap-1.5 font-sans text-mode cursor-pointer transition-all duration-200 active:scale-95 bg-transparent border-none p-0 focus:outline-none"
-                style={{ color: 'var(--color-text-tertiary)', opacity: 0.55 }}
+                style={{ color: 'var(--color-text-secondary)' }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = '1'
                   e.currentTarget.style.color = 'var(--color-text-primary)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = '0.55'
-                  e.currentTarget.style.color = 'var(--color-text-tertiary)'
+                  e.currentTarget.style.color = 'var(--color-text-secondary)'
                 }}
               >
                 try again
@@ -89,13 +87,11 @@ export class ErrorBoundary extends Component<Props, State> {
               <button
                 onClick={this.handleReload}
                 className="flex items-center gap-1.5 font-sans text-mode cursor-pointer transition-all duration-200 active:scale-95 bg-transparent border-none p-0 focus:outline-none"
-                style={{ color: 'var(--color-text-secondary)', opacity: 0.7 }}
+                style={{ color: 'var(--color-text-secondary)' }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = '1'
                   e.currentTarget.style.color = 'var(--color-accent)'
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = '0.7'
                   e.currentTarget.style.color = 'var(--color-text-secondary)'
                 }}
               >

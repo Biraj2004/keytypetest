@@ -9,7 +9,9 @@
 </p>
 
 <p align="center">
-  <a href="https://keytype.pages.dev">keytype.pages.dev</a>
+  <a href="https://keytypetest.birajsarkar67.workers.dev">keytypetest.birajsarkar67.workers.dev</a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/Biraj2004/keytypetest">GitHub</a>
 </p>
 
 ---
